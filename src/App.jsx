@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import Categories from './Pages/Categories';
 import Home from './Pages/Home';
@@ -17,14 +17,23 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <BrowserRouter>
+    <>
+      <nav className="navBar">
+        <span>BookStore</span>
+        <ul className="menuItems">
+        <li>
+        <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/categories">Categories</Link>
+        </li>
+        </ul>
+      </nav>
         <Routes>
           <Route path="/" element={<Home books={books} onDelete={deleteBook} onSubmit={addBook} />} />
           <Route path="/categories" element={<Categories />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+    </>
   );
 }
 
