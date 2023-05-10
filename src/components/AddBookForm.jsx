@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/booksSlice';
 
-function AddBookForm({ onSubmit }) {
+function AddBookForm() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [category, setCategory] = useState('');
