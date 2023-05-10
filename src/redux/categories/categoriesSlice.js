@@ -1,12 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    bookArray: [],
+    categoriesArray: [],
 }
 
-const bookSlice = createSlice({
-    name: 'books',
+const categoriesSlice = createSlice({
+    name: 'categories',
     initialState,
 })
-
-console.log(bookSlice);
