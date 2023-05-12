@@ -1,22 +1,26 @@
 import AddBookForm from '../components/AddBookForm';
 import ListOfBook from '../components/ListOfBook';
 import { useSelector, useDispatch } from 'react-redux';
-import { addBook, removeBook } from '../redux/books/booksSlice';
+import { fetchBooks, deleteBook } from '../redux/books/booksSlice';
+import { useEffect } from 'react';
 
 function Home() {
-  const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
-  const removeBookFeature = (bookId) => {
-    dispatch(removeBook(bookId));
+  const books = useSelector((state) => Object.entries(state.books).map(([id, bookData]) => ({
+    id,
+    ...bookData,
+  })));
+  const removeBookFeature = (id) => {
+    dispatch(deleteBook(id));
   };
-  const addBookFeature = (book) => {
-    dispatch(addBook(book));
-  };
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, [dispatch]);
 
   return (
     <div>
       <ListOfBook key={books.item_id} books={books} onDelete={removeBookFeature} />
-      <AddBookForm onSubmit={addBookFeature} />
+      <AddBookForm />
     </div>
   );
 }
