@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/booksSlice';
+import { nanoid } from '@reduxjs/toolkit';
+import { createBook } from '../redux/books/booksSlice';
 
 function AddBookForm() {
   const [title, setTitle] = useState('');
@@ -8,23 +10,24 @@ function AddBookForm() {
   const [category, setCategory] = useState('');
   const dispatch = useDispatch();
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const newBook = {
-      item_id: Date.now().toString(),
-      title,
-      author,
-      category,
-    };
-    dispatch(addBook(newBook));
-    setTitle('');
-    setAuthor('');
-    setCategory('');
-  }
+    if (title && author && category) {
+      const newBook = {
+        item_id: nanoid(),
+        title,
+        author,
+        category,
+      };
+      dispatch(createBook(newBook));
+      setTitle('');
+      setAuthor('');
+      setCategory('');
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add a new book below</h2>
       <input
         type="text"
         placeholder="Book title"

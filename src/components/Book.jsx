@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import IndicatorProgress from './IndicatorProgress';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
+import { deleteBook } from '../redux/books/booksSlice';
 
 function Book({ book }) {
   const percentage = 33;
   const dispatch = useDispatch();
   const handleDelete = () => {
-    dispatch(removeBook(book.item_id));
+    dispatch(deleteBook(book.id));
   };
 
   return (
@@ -33,7 +33,7 @@ function Book({ book }) {
 
 Book.propTypes = {
   book: PropTypes.shape({
-    item_id: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
   }).isRequired,
