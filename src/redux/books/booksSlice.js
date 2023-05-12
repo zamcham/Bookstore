@@ -42,7 +42,7 @@ const booksSlice = createSlice({
     initialState,
 
     reducers: {},
-  extraReducers: (builder) => {
+    extraReducers: (builder) => {
     builder
       .addCase(fetchBooks.fulfilled, (state, action) => action.payload)
       .addCase(createBook.fulfilled, (state, action) => {
