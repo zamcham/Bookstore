@@ -3,15 +3,11 @@ import Book from './Book';
 
 function ListOfBook({ books, onDelete }) {
   return (
-    <>
-    <div>
+    <div className='mainContainer'>
       {books.map((book) => (
         <Book key={book.id} book={book} onDelete={onDelete} />
       ))}
     </div>
-    <span className='Line'></span>
-    </>
-    
   );
 }
 

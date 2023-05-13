@@ -18,10 +18,10 @@ function Home() {
   }, [dispatch]);
 
   return (
-    <div>
+    <>
       <ListOfBook key={books.item_id} books={books} onDelete={removeBookFeature} />
       <AddBookForm />
-    </div>
+    </>
   );
 }
 

@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import loginIcon from "../media/loginIcon.png"
 
 function Menu() {
     return (
-        <nav className="navBar">
+        <header>
+            <nav className="navBar">
             <div className="leftMenu half">
                 <span className="Bookstore-CMS">BookStore CMS</span>
                 <ul className="menuItems">
@@ -14,10 +16,11 @@ function Menu() {
                 </li>
                 </ul>
             </div>
-            <div className="loginIcon half">
-
+            <div className="half">
+                <img className="loginIcon" src={loginIcon} alt="Login" />
             </div>
       </nav>
+    </header>
     );
 }
 
