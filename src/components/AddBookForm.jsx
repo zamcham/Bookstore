@@ -26,7 +26,10 @@ function AddBookForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className='bottomForm'>
+      <span className='Line'></span>
+      <h4 className='addNewBookTitle'>ADD NEW BOOK</h4>
+      <form className='addForm' onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Book title"
@@ -45,8 +48,10 @@ function AddBookForm() {
         value={category}
         onChange={(e) => setCategory(e.target.value)}
       />
-      <button type="submit">Add Book</button>
-    </form>
+      <button id='addButtonForm' type="submit">Add Book</button>
+      </form>
+    </div>
+
   );
 }
 
