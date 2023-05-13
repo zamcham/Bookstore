@@ -12,29 +12,36 @@ function Book({ book, onDelete }) {
   };
 
   return (
-    <div className="individual-book">
-      <div>
-        <p>{category}</p>
-        <h3>{title}</h3>
-        <p>{author}</p>
-        <button type="button">Comments</button>
-        <button type="submit" onClick={handleDelete}>
-          Remove Book
-        </button>
-        <button type="button">Edit</button>
-      </div>
-
-      <div className="progress">
-        <div className="circle" />
-        <IndicatorProgress percentage={percentage} />
-        <span>{`${percentage}% Completed`}</span>
+    <div className="Book-Panel">
+      <div className="individual-book left">
+        <div className="book-info">
+          <p className='School-of'>{category}</p>
+          <h3 className='Title'>{title}</h3>
+          <p className='author'>{author}</p>
+          <div className='book-buttons'>
+            <button type="button">Comments</button>
+            <span className='Line-2'></span>
+            <button type="submit" onClick={handleDelete}>
+              Remove
+            </button>
+            <span className='Line-2'></span>
+            <button type="button">Edit</button>
+          </div>
+        </div>
+        <div className="progress">
+          <IndicatorProgress percentage={percentage} />
+          <div className='completed-text'>
+          <span className='percent'>{`${percentage}%`}</span>
+          <span className='completed'>Completed</span>
+          </div>
+        </div>
+        <span className='Line-3'></span>
       </div>
       <div className="current-chapter">
-        <h4>Current Chapter</h4>
-        <p>Chapter 3 of 5</p>
+        <h4 className='Current-Chapter'>Current Chapter</h4>
+        <p className='Current-Lesson'>Chapter 3 of 5</p>
         <button type="button">UPDATE PROGRESS</button>
       </div>
-        <button type="submit" onClick={handleDelete}>Remove Book</button>
     </div>
   );
 }
